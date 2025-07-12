@@ -1,3 +1,10 @@
+/* —— L'Oréal Brand Colors —— */
+:root {
+  --loreal-black: #000000;
+  --loreal-white: #ffffff;
+  --loreal-gold: #c7a008;
+}
+
 /* —— basic reset —— */
 * {
   box-sizing: border-box;
@@ -6,61 +13,131 @@
 }
 
 /* —— body + fonts —— */
+/* Flipped: black background for body */
 body {
-  font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  font-family: "Montserrat", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: var(--loreal-white); /* white text for contrast */
+  background: var(--loreal-white); /* flipped to black */
   display: flex;
   justify-content: center;
+  min-height: 100vh;
 }
 
+/* —— Page Wrapper —— */
 .page-wrapper {
   width: 90%;
   max-width: 900px;
+  background: var(--loreal-white); /* flipped to black */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  border-radius: 16px;
+  margin: 32px 0;
+  /*padding-bottom: 16px;*/
 }
 
-/* header */
+/* —— Header / Branding —— */
+/* Flipped: header is now white for logo visibility */
 .site-header {
-  text-align: center;
-  padding-top: 50px;
+  background: var(--loreal-white); /* flipped to white */
+  color: var(--loreal-black); /* black text */
+  padding: 32px 24px 24px 24px;
+  border-radius: 16px 16px 0 0;
+  position: relative;
 }
 
+.branding {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.loreal-logo {
+  height: 48px;
+  width: auto;
+  display: block;
+  /* Remove gold border for cleaner look on white */
+  border-left: none;
+  padding-left: 0;
+  background: transparent;
+}
+
+/* —— Site Title —— */
 .site-title {
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 10px;
+  font-family: "Playfair Display", "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--loreal-black); /* black text on white */
+  margin-bottom: 0;
 }
 
-/* chat window */
+/* —— Chat Window —— */
 .chatbox {
   margin: 40px 0;
 }
 
 .chat-window {
   height: 360px;
-  border: 1px solid #000;
+  border: 2px solid var(--loreal-black); /* white border for contrast */
   padding: 20px;
   font-size: 18px;
   line-height: 1.5;
   overflow-y: auto;
-  background: #fafafa;
+  background: var(--loreal-white); /* black background */
+  color: var(--loreal-white); /* white text */
   white-space: pre-line;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-/* messages */
+/* —— Messages —— */
 .msg {
   margin-bottom: 14px;
   line-height: 1.5;
+  max-width: 75%;
+  padding: 12px 18px;
+  border-radius: 18px;
+  display: inline-block;
+  word-break: break-word;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
 }
 
+/* User messages: gold bubble, right-aligned */
 .msg.user {
-  color: #000;
+  background: var(--loreal-gold);
+  color: var(--loreal-black);
+  font-weight: 500;
+  margin-left: auto;
+  margin-right: 0;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 18px;
+  border-top-right-radius: 18px;
+  border-top-left-radius: 18px;
+  text-align: right;
+  /* Place on right side */
+  display: block;
 }
 
+/* Chatbot messages: white bubble, left-aligned */
 .msg.ai {
-  color: #666666;
+  background: var(--loreal-black);
+  color: var(--loreal-white);
+  font-style: normal;
+  margin-right: auto;
+  margin-left: 0;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 18px;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  text-align: left;
+  /* Place on left side */
+  display: block;
 }
 
-/* input row */
+/* —— Input Row —— */
 .chat-form {
   display: flex;
   gap: 12px;
@@ -70,19 +147,24 @@ body {
 .chat-form input {
   flex: 1;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 1.5px solid var(--loreal-white); /* white border */
   font-size: 18px;
+  border-radius: 8px;
+  background: var(--loreal-black); /* black input */
+  color: var(--loreal-white); /* white text */
+  font-family: "Montserrat", Arial, sans-serif;
 }
 
 .chat-form input:focus {
-  outline: 2px solid #000;
+  outline: 2px solid var(--loreal-gold);
   outline-offset: 2px;
 }
 
+/* —— Button styling for L'Oréal —— */
 .chat-form button {
   font-size: 18px;
-  background: #000;
-  color: #fff;
+  background: var(--loreal-gold); /* gold button */
+  color: var(--loreal-black); /* black icon */
   border: none;
   padding: 12px;
   width: 48px;
@@ -91,23 +173,24 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s, color 0.3s;
 }
 
 .chat-form button .material-icons {
   font-size: 24px;
 }
 
-.chat-form button:hover {
-  background: #666666;
-}
-
+.chat-form button:hover,
 .chat-form button:focus {
-  outline: 2px solid #000;
+  background: var(--loreal-white); /* white on hover */
+  color: var(--loreal-black); /* black icon */
+  outline: 2px solid var(--loreal-gold);
   outline-offset: 2px;
 }
 
-/* visually hidden */
+/* —— Visually Hidden —— */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -120,12 +203,17 @@ body {
   border: 0;
 }
 
-/* footer */
+/* —— Footer —— */
+/* Flipped: footer is now white with black and gold text */
 .site-footer {
   margin: 60px 0 40px;
   text-align: center;
-  font-size: 14px;
-  color: #666;
+  font-size: 15px;
+  background: var(--loreal-white); /* white background */
+  color: var(--loreal-black); /* black text */
+  border-radius: 0 0 16px 16px;
+  padding: 24px 0 16px 0;
+  font-family: "Montserrat", Arial, sans-serif;
 }
 
 .site-footer nav {
@@ -134,10 +222,73 @@ body {
 
 .site-footer a {
   margin: 0 8px;
-  color: #000;
+  color: var(--loreal-gold); /* gold links */
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
 .site-footer a:hover {
-  color: #666666;
+  color: var(--loreal-black); /* black on hover */
+  text-decoration: underline;
 }
+
+/* —— Latest user question styling */
+.latest-question {
+  margin-bottom: 12px;
+  padding: 12px 18px;
+  background: var(--loreal-gold);
+  color: var(--loreal-black);
+  border-radius: 14px;
+  font-weight: 500;
+  font-size: 1.05rem;
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  display: none; /* Hidden by default, shown when a question is present */
+}
+
+/* —— Responsive Design —— */
+@media (max-width: 600px) {
+  .page-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding-bottom: 0;
+  }
+  .site-header {
+    padding: 20px 8px 16px 8px;
+    border-radius: 0;
+  }
+  .branding {
+    gap: 12px;
+  }
+  .loreal-logo {
+    height: 36px;
+    padding-left: 0;
+    border-left-width: 0;
+  }
+  .site-title {
+    font-size: 1.2rem;
+  }
+  .chat-window {
+    height: 220px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .chat-form button {
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+  }
+  .site-footer {
+    padding: 16px 0 8px 0;
+    border-radius: 0;
+    font-size: 13px;
+  }
+}
+
+/* —— End of L'Oréal branding changes —— */

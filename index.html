@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat Assistant</title>
+    <!-- Google Fonts: Playfair Display for elegance, Montserrat for body -->
     <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -19,12 +20,29 @@
     <div class="page-wrapper">
       <!------- Header / Branding ------->
       <header class="site-header">
-        <h1 class="site-title">Smart Product Advisor</h1>
+        <!-- L'Oréal logo added for branding -->
+        <div class="branding">
+          <a href="#" aria-label="L'Oréal Home">
+            <img
+              src="img/loreal-logo.png"
+              alt="L'Oréal Paris Logo"
+              class="loreal-logo"
+            />
+          </a>
+          <h1 class="site-title">Smart Product Advisor</h1>
+        </div>
       </header>
 
       <!------- Chat Area ------->
       <main>
         <section class="chatbox">
+          <!-- Latest user question shown here -->
+          <div
+            id="latestQuestion"
+            class="latest-question"
+            aria-live="polite"
+            aria-label="Latest user question"
+          ></div>
           <div id="chatWindow" class="chat-window">
             <!-- messages will be appended here via JS -->
           </div>
@@ -49,7 +67,7 @@
 
       <!------- Footer Links ------->
       <footer class="site-footer">
-        <p>&copy; 2025 Company Name. All rights reserved.</p>
+        <p>&copy; 2025 L'Oréal Paris. All rights reserved.</p>
         <nav>
           <!-- These URLs are placeholders -->
           <a href="#">Privacy Policy</a>
